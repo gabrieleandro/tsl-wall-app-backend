@@ -1,0 +1,4 @@
+.vscode/*
+syntax:glob
+*.pyc
+._*
