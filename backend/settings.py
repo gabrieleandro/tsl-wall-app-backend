@@ -1,5 +1,6 @@
 import os
 
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -30,8 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.postgres',
     # third-party apps
     'rest_framework',
-    'djangorestframework-simplejwt',
-    #
+    'rest_framework_simplejwt',
+    # project apps
     'accounts',
 ]
 
@@ -128,8 +129,12 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 100,
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
 }
