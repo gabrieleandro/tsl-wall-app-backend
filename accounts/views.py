@@ -4,7 +4,7 @@ from rest_framework import generics
 from .serializers import UserSerializer
 
 
-class UserList(generics.ListAPIView):
+class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
