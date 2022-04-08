@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-sgntb0_*hp6)+s(-!a3#lgf-1rcc72^bsqc-&f02ak-f$b5$ee
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -32,8 +32,10 @@ INSTALLED_APPS = [
     # third-party apps
     'rest_framework',
     'rest_framework_simplejwt',
+    'corsheaders',
     # project apps
     'accounts',
+    'posts'
 ]
 
 MIDDLEWARE = [
@@ -44,7 +46,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # third-party apps
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:8000',
+    'http://localhost:3000',
+)
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -81,7 +92,6 @@ DATABASES = {
         "TEST": {"SERIALIZE": False},
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
