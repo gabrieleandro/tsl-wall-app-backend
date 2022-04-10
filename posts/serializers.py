@@ -5,7 +5,7 @@ from accounts.serializers import UserSerializer
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = UserSerializer(read_only=True, required=False)
+    author = serializers.ReadOnlyField(source='author.username')
 
     class Meta:
         model = Post
