@@ -15,3 +15,6 @@ class Post(models.Model):
     body = models.TextField(blank=True)
 
     published_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-published_at']
