@@ -9,6 +9,8 @@ User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
     email = serializers.EmailField(
         required=True,
         validators=[UniqueValidator(
@@ -37,6 +39,7 @@ class UserSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ('date_joined',)
 
+
     def validate(self, attrs):
         if attrs['password'] != attrs['confirm_password']:
             raise serializers.ValidationError({
@@ -61,5 +64,7 @@ class AuthorSerializer(serializers.ModelSerializer):
         model = User
         fields = [
             'id',
+            'first_name',
+            'last_name',
             'username',
         ]

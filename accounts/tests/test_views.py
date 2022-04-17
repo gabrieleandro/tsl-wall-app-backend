@@ -58,7 +58,7 @@ class UserTests(APITestCase):
         }
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        self.assertIs(User.objects.filter(username=self.username).exists(), True)
+        self.assertTrue(User.objects.filter(username=self.username).exists())
 
 
     def test_user_cannot_register(self):
@@ -67,6 +67,8 @@ class UserTests(APITestCase):
         """
         url = reverse('users-list')
         data = {
+            'first_name': self.first_name,
+            'last_name': self.last_name,
             'username': self.username,
             'email': self.email,
             'password': self.password,
@@ -75,7 +77,7 @@ class UserTests(APITestCase):
         response = self.client.post(url, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_user_retrieve(self):
+    def test_can_retrieve_user_info(self):
         """
         Ensure we can retrieve an user details.
         """
@@ -83,7 +85,7 @@ class UserTests(APITestCase):
         response = self.client.get(url, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_user_cannot_retrieve(self):
+    def test_user_notfound(self):
         """
         Ensure we get 404 in an unexistence user.
         """

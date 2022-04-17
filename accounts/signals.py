@@ -13,7 +13,7 @@ def send_welcome_email(sender, instance, created, **kwargs):
     if created:
         send_mail(
             'Welcome to TSL Wall App!',
-            'Hello! Welcome to TSL Wall App!',
+            'Hello, {first_name}! Welcome to TSL Wall App!'.format(first_name=instance.first_name),
             'from@example.com',
             [instance.email],
             fail_silently=False,
