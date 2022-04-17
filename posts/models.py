@@ -12,7 +12,7 @@ class Post(models.Model):
         on_delete=models.CASCADE,
         related_name='posts'
     )
-    body = models.TextField(blank=True)
+    body = models.TextField()
 
     published_at = models.DateTimeField(auto_now_add=True)
 

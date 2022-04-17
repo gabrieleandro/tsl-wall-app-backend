@@ -6,6 +6,7 @@ from accounts.serializers import AuthorSerializer
 
 class PostSerializer(serializers.ModelSerializer):
     author = AuthorSerializer(read_only=True)
+    # body = serializers.CharField(required=True)
 
     class Meta:
         model = Post
