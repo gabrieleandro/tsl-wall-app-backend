@@ -7,7 +7,7 @@ A TSL - Hiring Assignments project.
 - [Installation](#installation)
 - [Environment variables](#environment-variables)
 - [Usage](#usage)
-- [Test](#test)
+- [Testing](#testing)
 - [Requirements](#requirements)
 
 ## Installation
@@ -32,6 +32,10 @@ DEBUG=
 SECRET_KEY=
 ALLOWED_HOSTS=
 
+GUNICORN_WORKERS=5
+GUNICORN_LOG_LEVEL=info
+GUNICORN_TIMEOUT=60
+
 CORS_ORIGIN_WHITELIST=
 
 DEFAULT_FROM_EMAIL=
@@ -53,7 +57,7 @@ python3 manage.py runserver
 
 Visit localhost:8000/api/check to see the running api.
 
-## Test
+## Testing
 
 ```bash
 python3 manage.py test

@@ -2,5 +2,6 @@ Django==4.0.3
 djangorestframework==3.13.1
 djangorestframework-simplejwt==5.1.0
 psycopg2==2.9.3
-django-cors-headers
-django-sendgrid-v5
+django-cors-headers==3.11.0
+django-sendgrid-v5==1.2.0
+gunicorn==20.1.0
