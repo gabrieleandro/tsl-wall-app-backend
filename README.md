@@ -1,6 +1,8 @@
-# TSL Wall App - Backend
+# TSL Wall App | Back-End
 
-A TSL - Hiring Assignments project.
+A TSL - Hiring Assignment project built with [Django](https://www.djangoproject.com/).
+
+Wall App is an application that allows users to register, login, and write on a wall.
 
 ## Table of Contents
 
