@@ -167,3 +167,18 @@ SIMPLE_JWT = {
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ORIGIN_WHITELIST = [os.getenv('CORS_ORIGIN_WHITELIST')]
+
+
+# drf-yasg 
+# https://drf-yasg.readthedocs.io/en/stable/settings.html
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+     'Authorization': {
+      'type': 'http',
+      'scheme': 'Bearer',
+      'bearerFormat': 'JWT',
+      'description': "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Authorization: Bearer <token>'.\r\n\r\nExample: \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ey\""
+      } 
+    },
+}
