@@ -5,18 +5,14 @@ from django.test import override_settings
 from django.test.testcases import SimpleTestCase
 
 
-class TestPostToSendgrid(SimpleTestCase):
-    def test_post(self):
+class TestEmailWelcome(SimpleTestCase):
+    def test_send_email(self):
         """
-        Sends a POST to sendgrid's live API using a private API key.
+        Ensure the welcome email is sent.
         """
-
-        SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY")
 
         settings = {
             "DEBUG": True,
-            "SENDGRID_API_KEY": SENDGRID_API_KEY,
-            "EMAIL_BACKEND": "sendgrid_backend.SendgridBackend",
         }
 
         with override_settings(**settings):

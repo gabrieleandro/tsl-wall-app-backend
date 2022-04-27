@@ -6,13 +6,27 @@ Wall App is an application that allows users to register, login, and write on a 
 
 ## Table of Contents
 
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Environment variables](#environment-variables)
 - [Usage](#usage)
 - [Testing](#testing)
 - [Requirements](#requirements)
 
+## Prerequisites
+
+- [Python 3.8 or higher](https://www.python.org/downloads/)
+
 ## Installation
+
+Create a virtual environment.
+
+```bash
+mkvirtualenv wallapp-env
+mkvirtualenv -p python3.8 wallapp-env
+workon wallapp-env
+```
+
 Clone this repo and install the requirements.
 
 ```bash
@@ -26,10 +40,6 @@ python3 manage.py migrate
 Create a .env file with
 
 ```env
-POSTGRES_NAME=
-POSTGRES_USER=
-POSTGRES_PASSWORD=
-
 DEBUG=
 SECRET_KEY=
 ALLOWED_HOSTS=
@@ -47,6 +57,11 @@ SENDGRID_API_KEY=
 
 SECRET_KEY: You can generate a key, [here](https://djecrety.ir/).
 
+In order to send emails using Sendgrid set:
+
+```env
+EMAIL_BACKEND=sendgrid_backend.SendgridBackend
+```
 SENDGRID_API_KEY: Create an API Key in Sendgrid, [here](https://app.sendgrid.com/settings/api_keys) .
 
 ## Usage
@@ -56,8 +71,6 @@ Run the server using the following command:
 ```bash
 python3 manage.py runserver
 ```
-
-Visit localhost:8000/api/check to see the running api.
 
 ## Testing
 
