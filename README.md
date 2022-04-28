@@ -12,6 +12,7 @@ Wall App is an application that allows users to register, login, and write on a 
 - [Usage](#usage)
 - [Testing](#testing)
 - [Requirements](#requirements)
+- [API documentation](#api-documentation)
 
 ## Prerequisites
 
@@ -37,16 +38,16 @@ python3 manage.py migrate
 ```
 
 ## Environment variables
-Create a .env file with
+Copy our .env.example file (included in this repo) or create a .env file with 
 
 ```env
 DEBUG=
 SECRET_KEY=
 ALLOWED_HOSTS=
 
-GUNICORN_WORKERS=5
-GUNICORN_LOG_LEVEL=info
-GUNICORN_TIMEOUT=60
+GUNICORN_WORKERS=
+GUNICORN_LOG_LEVEL=
+GUNICORN_TIMEOUT=
 
 CORS_ORIGIN_WHITELIST=
 
@@ -55,14 +56,10 @@ EMAIL_BACKEND=
 SENDGRID_API_KEY=
 ```
 
-SECRET_KEY: You can generate a key, [here](https://djecrety.ir/).
+You can generate a SECRET_KEY, [here](https://djecrety.ir/).
 
-In order to send emails using Sendgrid set:
-
-```env
-EMAIL_BACKEND=sendgrid_backend.SendgridBackend
-```
-SENDGRID_API_KEY: Create an API Key in Sendgrid, [here](https://app.sendgrid.com/settings/api_keys) .
+### In order to send emails using Sendgrid
+Use "sendgrid_backend.SendgridBackend" and create an API Key in Sendgrid, [here](https://app.sendgrid.com/settings/api_keys) .
 
 ## Usage
 
@@ -71,6 +68,14 @@ Run the server using the following command:
 ```bash
 python3 manage.py runserver
 ```
+
+or
+
+```bash
+gunicorn backend.wsgi
+```
+
+visit http://localhost:8000/
 
 ## Testing
 
@@ -86,3 +91,9 @@ python3 manage.py test
 ### Optional
 
 - [django-sendgrid-v5](https://github.com/sklarsa/django-sendgrid-v5)
+
+## API Documentation
+
+[Redoc](https://github.com/Redocly/redoc) is an open-source tool for generating documentation from OpenAPI (fka Swagger) definitions.
+
+You can access the API documentation in your http://localhost:8000/redoc/
