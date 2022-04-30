@@ -56,10 +56,21 @@ EMAIL_BACKEND=
 SENDGRID_API_KEY=
 ```
 
-You can generate a SECRET_KEY, [here](https://djecrety.ir/).
+SECRET_KEY: You can generate a key, [here](https://djecrety.ir/).
 
-### In order to send emails using Sendgrid
-Use "sendgrid_backend.SendgridBackend" and create an API Key in Sendgrid, [here](https://app.sendgrid.com/settings/api_keys) .
+## Observations
+The welcome email will be printed on the console.
+
+The default EMAIL_BACKEND is using django.core.mail.backends.console.EmailBackend. 
+
+Instead of sending out real emails the console backend just writes the emails that would be sent to the standard output [more info](https://docs.djangoproject.com/en/4.0/topics/email/#console-backend).
+
+### In order to send emails using Sendgrid:
+Create an API Key in Sendgrid, [here](https://app.sendgrid.com/settings/api_keys).
+And set the EMAIL_BACKEND to 
+```bash
+EMAIL_BACKEND=sendgrid_backend.SendgridBackend
+```
 
 # Usage
 
