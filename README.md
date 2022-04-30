@@ -18,7 +18,7 @@ Wall App is an application that allows users to register, login, and write on a 
 
 - [Python 3.8 or higher](https://www.python.org/downloads/)
 
-## Installation
+# Installation
 
 Create a virtual environment.
 
@@ -37,7 +37,7 @@ pip install  -r requirements.txt
 python3 manage.py migrate
 ```
 
-## Environment variables
+# Environment variables
 Copy our .env.example file (included in this repo) or create a .env file with 
 
 ```env
@@ -61,7 +61,7 @@ You can generate a SECRET_KEY, [here](https://djecrety.ir/).
 ### In order to send emails using Sendgrid
 Use "sendgrid_backend.SendgridBackend" and create an API Key in Sendgrid, [here](https://app.sendgrid.com/settings/api_keys) .
 
-## Usage
+# Usage
 
 Run the server using the following command:
 
@@ -75,14 +75,14 @@ or
 gunicorn backend.wsgi
 ```
 
-visit http://localhost:8000/
+Now you can access at http://localhost:8000/
 
-## Testing
+# Testing
 
 ```bash
 python3 manage.py test
 ```
-## Requirements
+# Requirements
 
 - [Django REST framework](https://www.django-rest-framework.org/)
 - [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/index.html)
@@ -92,7 +92,7 @@ python3 manage.py test
 
 - [django-sendgrid-v5](https://github.com/sklarsa/django-sendgrid-v5)
 
-## API Documentation
+# API Documentation
 
 [Redoc](https://github.com/Redocly/redoc) is an open-source tool for generating documentation from OpenAPI (fka Swagger) definitions.
 
