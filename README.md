@@ -38,7 +38,14 @@ python3 manage.py migrate
 ```
 
 # Environment variables
-Copy our .env.example file (included in this repo) or create a .env file with 
+
+Copy our .env.example file (included in this repo)
+
+```bash
+cp .env.example .env
+```
+
+or create a .env file with 
 
 ```env
 DEBUG=
