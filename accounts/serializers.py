@@ -11,7 +11,14 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(required=True, min_length=3)
     last_name = serializers.CharField(required=True, min_length=3)
-    username = serializers.CharField(required=True, min_length=3)
+    username = serializers.CharField(
+        required=True,
+        min_length=3,
+        validators=[UniqueValidator(
+            queryset=User.objects.all(),
+            message='A user with that username already exists.'
+        )]
+    )
     email = serializers.EmailField(
         required=True,
         validators=[UniqueValidator(
