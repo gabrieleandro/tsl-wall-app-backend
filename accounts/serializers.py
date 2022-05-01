@@ -9,8 +9,9 @@ User = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
-    first_name = serializers.CharField(required=True)
-    last_name = serializers.CharField(required=True)
+    first_name = serializers.CharField(required=True, min_length=3)
+    last_name = serializers.CharField(required=True, min_length=3)
+    username = serializers.CharField(required=True, min_length=3)
     email = serializers.EmailField(
         required=True,
         validators=[UniqueValidator(
